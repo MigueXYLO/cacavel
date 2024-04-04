@@ -26,6 +26,7 @@
         <th>Nº Semesters</th>
         <th>Nº Places</th>
         <th></th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -38,6 +39,14 @@
             <td>{{ $course->places }}</td>
             <td>
                 <a href="{{ route('courses.edit', ['course' => $course]) }}">Update</a>
+            </td>
+            <td>
+                <form method="POST"
+                      action="{{ route('courses.destroy', ['course' => $course]) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" name="delete">Delete</button>
+                </form>
             </td>
         </tr>
     @endforeach

@@ -13,10 +13,14 @@ class CourseController extends Controller
         debug($allCourses);
         return view('courses.index')->with('courses', $allCourses);
     }
-
+    public function show(Course $course): View
+    {
+        return view('courses.show')->with('course', $course);
+    }
     public function create(): View
     {
-        return view('courses.create');
+        $newCourse= new Course();
+        return view('courses.create')->with('course', $newCourse);
     }
 
     public function store(Request $request):RedirectResponse
@@ -34,5 +38,11 @@ class CourseController extends Controller
         $course->update($request->all());
         return redirect()->route('courses.index');
     }
+    public function destroy(Course $course): RedirectResponse
+    {
+        $course->delete();
+        return redirect()->route('courses.index');
+    }
+
 
 }

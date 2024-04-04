@@ -7,14 +7,9 @@
     <title>Course</title>
 </head>
 <body>
-<h2>Update course "{{ $course->name }}"</h2>
-<form method="POST" action="{{ route('courses.update', ['course' => $course]) }}">
-    @csrf
-    @method('PUT')
+<h2>Course "{{ $course->name }}"</h2>
+<div>
     @include('courses.shared.fields')
-    <div>
-        <button type="submit" name="ok">Save course</button>
-    </div>
-</form>
+</div>
 </body>
 </html>
