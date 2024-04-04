@@ -15,6 +15,8 @@
     </style>
 </head>
 <body>
+<h1>List of courses</h1>
+<p><a href="{{ route('courses.create') }}">Create a new course</a></p>
 <table>
     <thead>
     <tr>
@@ -23,6 +25,7 @@
         <th>Type</th>
         <th>Nº Semesters</th>
         <th>Nº Places</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -33,6 +36,9 @@
             <td>{{ $course->type }}</td>
             <td>{{ $course->semesters }}</td>
             <td>{{ $course->places }}</td>
+            <td>
+                <a href="{{ route('courses.edit', ['course' => $course]) }}">Update</a>
+            </td>
         </tr>
     @endforeach
     </tbody>

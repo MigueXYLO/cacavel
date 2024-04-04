@@ -7,7 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
+
     use HasFactory;
+    protected $primaryKey = 'abbreviation';
+    public $incrementing = false;
+    public $timestamps = false;
+    protected $keyType = 'string';
     protected $fillable = [
         'abbreviation',
         'name',

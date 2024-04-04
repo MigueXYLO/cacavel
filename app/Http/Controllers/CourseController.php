@@ -22,6 +22,17 @@ class CourseController extends Controller
     public function store(Request $request):RedirectResponse
     {
         Course::create($request->all());
-        return redirect('/courses');
+        return redirect()->route('courses.index');
     }
+
+    public function edit(Course $course): View
+    {
+        return view('courses.edit')->with('course', $course);
+    }
+    public function update(Request $request, Course $course): RedirectResponse
+    {
+        $course->update($request->all());
+        return redirect()->route('courses.index');
+    }
+
 }

@@ -8,7 +8,7 @@
     </head>
     <body>
     <h2>New Course</h2>
-    <form method="POST" action="/courses">
+    <form method="POST" action="{{ route('courses.store') }}">
         @csrf
         <div>
             <label for="inputAbbreviation">Abbreviation</label>
