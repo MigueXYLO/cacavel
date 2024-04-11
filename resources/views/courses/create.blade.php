@@ -10,7 +10,7 @@
     <h2>New Course</h2>
     <form method="POST" action="{{ route('courses.store') }}">
         @csrf
-        @include('courses.shared.fields')
+        @include('courses.shared.fields', ['readonlyData' => false])
         <div>
             <button type="submit" name="ok">Save new course</button>
         </div>

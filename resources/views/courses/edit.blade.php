@@ -11,7 +11,7 @@
 <form method="POST" action="{{ route('courses.update', ['course' => $course]) }}">
     @csrf
     @method('PUT')
-    @include('courses.shared.fields')
+    @include('courses.shared.fields', ['readonlyData' => false])
     <div>
         <button type="submit" name="ok">Save course</button>
     </div>

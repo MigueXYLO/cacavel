@@ -10,7 +10,6 @@ class CourseController extends Controller
     public function index(): View
     {
         $allCourses = Course::all();
-        debug($allCourses);
         return view('courses.index')->with('courses', $allCourses);
     }
     public function show(Course $course): View
@@ -43,6 +42,5 @@ class CourseController extends Controller
         $course->delete();
         return redirect()->route('courses.index');
     }
-
 
 }

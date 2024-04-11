@@ -38,6 +38,9 @@
             <td>{{ $course->semesters }}</td>
             <td>{{ $course->places }}</td>
             <td>
+                <a href="{{ route('courses.show', ['course' => $course]) }}">View</a>
+            </td>
+            <td>
                 <a href="{{ route('courses.edit', ['course' => $course]) }}">Update</a>
             </td>
             <td>

@@ -9,7 +9,7 @@
 <body>
 <h2>Course "{{ $course->name }}"</h2>
 <div>
-    @include('courses.shared.fields')
+    @include('courses.shared.fields', ['readonlyData' => true])
 </div>
 </body>
 </html>
