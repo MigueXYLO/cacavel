@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Discipline;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -31,7 +32,7 @@ class DisciplineController extends Controller
      */
     public function store(Request $request):RedirectResponse
     {
-        //
+        $request['optional'] = $request->has('optional') ? 1 : 0;
         Discipline::create($request->all());
         return redirect()->route('disciplines.index');
     }
@@ -55,8 +56,10 @@ class DisciplineController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Discipline $discipline)
+    public function update(Request $request, Discipline $discipline):RedirectResponse
     {
+        //get the request for the optional and make it binary
+        $request['optional'] = $request->has('optional') ? 1 : 0;
         $discipline->update($request->all());
         return redirect()->route('disciplines.index');
     }
@@ -64,8 +67,10 @@ class DisciplineController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Discipline $discipline)
+    public function destroy(Discipline $discipline):RedirectResponse
     {
         //
+        $discipline->delete();
+        return redirect()->route('disciplines.index');
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\DisciplineController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -8,3 +9,4 @@ Route::get('/', function () {
 })->name('home');
 
 Route::resource('courses', CourseController::class);
+Route::resource('disciplines', DisciplineController::class);
